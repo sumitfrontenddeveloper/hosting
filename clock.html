@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body{box-sizing: border-box;
+        padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+background-color: #00092c;}
+.clock{width: 400px;
+    margin: auto;
+aspect-ratio: 1/1;
+border: 2px solid #00092c;
+background-color: transparent;
+box-shadow: 0 0 20px #2cc4df,inset 0 0 20px #2cc4df;
+position: relative;
+border-radius: 50%;}
+.abs{position: absolute;
+    font-weight: 700;
+    color: #fff;
+font-size: 30px;}
+.hr{width: 30%;
+height: 6px;
+margin-top: -3px;
+background-color: #f00;
+top: 50%;
+left: 50%;
+transform-origin: left center;}
+.min{width: 35%;
+height: 4px;
+margin-top: -2px;
+background-color: #ff0;
+top: 50%;
+left: 50%;
+transform-origin: left center;}
+.sec{width: 50%;
+height: 2px;
+margin-top: -1px;
+background-color: rgb(0, 255, 0);
+top: 50%;
+left: 40%;
+transform-origin: 40px center;}
+.dot{width: 20px;
+height: 20px;
+border-radius: 50%;
+background-color: #fff;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);}
+.top-cen{top: 0;
+left: 50%;
+transform: translate(-50%);}
+.right-cen{top: 50%;
+right: 1%;
+transform: translateY(-50%);}
+.bottom-cen{bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+}
+.left-cen{left: 1%;
+top: 50%;
+transform: translateY(-50%);}
+.one{top: 7%;
+right: 26%;}
+.two{top: 24%;
+right: 8%;}
+.four{bottom: 22%;
+right: 9%;}
+.five{bottom: 7%;
+right: 26%;}
+.seven{bottom: 7%;
+left: 24%;}
+.eight{bottom: 23%;
+left: 8%;}
+.ten{top: 24%;
+left: 8%;}
+.eleven{top: 7%;
+left: 26%;}
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hr abs"></div>
+        <div class="min abs"></div>
+        <div class="sec abs"></div>
+        <div class="dot abs"></div>
+        <div class="top-cen abs">12</div>
+        <div class="one abs">1</div>
+        <div class="two abs">2</div>
+        <div class="right-cen abs">3</div>
+        <div class="four abs">4</div>
+        <div class="five abs">5</div>
+        <div class="bottom-cen abs">6</div>
+        <div class="seven abs">7</div>
+        <div class="eight abs">8</div>
+        <div class="left-cen abs">9</div>
+        <div class="ten abs">10</div>
+        <div class="eleven abs">11</div>
+    </div>
+    <script>
+        "use strict";
+        function showTime(){
+        const date=new Date();
+        const sec=date.getSeconds();
+        const min=date.getMinutes();
+        const hour=date.getHours();
+
+        // document.querySelector(".para").textContent=date.toLocaleString();
+        document.querySelector(".sec").style.transform=`rotate(${sec*6-90}deg)`;
+        document.querySelector(".min").style.transform=`rotate(${min*6-90}deg)`;
+        document.querySelector(".hr").style.transform=`rotate(${hour*30+(min/2)-90}deg)`;
+
+    }
+
+    showTime();
+    setInterval(showTime);
+    </script>
+    
+</body>
+</html>
